@@ -1,0 +1,79 @@
+devices:
+  xe1:
+    connections:
+      cli:
+        ip: 10.85.171.241
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxe
+    type: iosxe
+  xe2:
+    connections:
+      cli:
+        ip: 10.85.171.242
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxe
+    type: iosxe
+  xe3:
+    connections:
+      cli:
+        ip: 10.85.171.243
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxe
+    type: iosxe
+  xr1:
+    connections:
+      cli:
+        ip: 10.85.171.250
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxr
+    type: iosxr
+  xr2:
+    connections:
+      cli:
+        ip: 10.85.171.10
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxr
+    type: iosxr
+  xr3:
+    connections:
+      cli:
+        ip: 10.85.171.11
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxr
+    type: iosxr

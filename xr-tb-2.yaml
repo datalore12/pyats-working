@@ -1,0 +1,27 @@
+devices:
+  xr2:
+    connections:
+      cli:
+        ip: 10.85.171.10
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxr
+    type: iosxr
+  xr3:
+    connections:
+      cli:
+        ip: 10.85.171.11
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxr
+    type: iosxr

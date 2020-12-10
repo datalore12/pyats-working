@@ -1,0 +1,21 @@
+---
+- hosts: xe
+  gather_facts: no
+  #connection: ansible.netcommon.network_cli
+ 
+  tasks:
+
+
+
+  - name: Delete ACL
+    ios_config:
+      lines: 
+        - no access-list 100
+ 
+  - name: Create ACL
+    ios_config:
+      lines: 
+        - access-list 100 permit tcp any any eq 22
+        - access-list 100 permit tcp any any eq 80
+        - access-list 100 permit tcp any any eq 443
+ 

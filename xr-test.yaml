@@ -1,0 +1,16 @@
+---
+- hosts: xr
+  gather_facts: no
+ 
+  tasks:
+
+
+
+  - name: run multiple commands
+    iosxr_command:
+      commands: 
+        - show version
+        - show ipv4 int brief
+    register: print_output
+  - debug: var=print_output.stdout_lines
+  

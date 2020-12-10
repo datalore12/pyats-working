@@ -1,0 +1,27 @@
+devices:
+  xe2:
+    connections:
+      cli:
+        ip: 10.85.171.242
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxe
+    type: iosxe
+  xe3:
+    connections:
+      cli:
+        ip: 10.85.171.243
+        protocol: ssh
+    credentials:
+      default:
+        password: '%ENC{w5PDosOUw5fDog==}'
+        username: cisco
+      enable:
+        password: '%ENC{w5PDosOUw5fDog==}'
+    os: iosxe
+    type: iosxe
