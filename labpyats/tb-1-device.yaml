@@ -1,8 +1,8 @@
 devices:
-  xr1:
+  xe1:
     connections:
       cli:
-        ip: 10.85.171.18
+        ip: 10.85.171.247
         protocol: ssh
     credentials:
       default:
@@ -10,6 +10,5 @@ devices:
         username: cisco
       enable:
         password: '%ENC{w5PDosOUw5fDog==}'
-    os: iosxr
-    type: iosxr
- 
+    os: iosxe
+    type: iosxe

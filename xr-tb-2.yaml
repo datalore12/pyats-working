@@ -2,7 +2,7 @@ devices:
   xr2:
     connections:
       cli:
-        ip: 10.85.171.10
+        ip: 10.85.171.19
         protocol: ssh
     credentials:
       default:
@@ -15,7 +15,7 @@ devices:
   xr3:
     connections:
       cli:
-        ip: 10.85.171.11
+        ip: 10.85.171.20
         protocol: ssh
     credentials:
       default:

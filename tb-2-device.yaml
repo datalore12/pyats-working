@@ -2,7 +2,7 @@ devices:
   xe2:
     connections:
       cli:
-        ip: 10.85.171.242
+        ip: 10.85.171.16
         protocol: ssh
     credentials:
       default:
@@ -15,7 +15,7 @@ devices:
   xe3:
     connections:
       cli:
-        ip: 10.85.171.243
+        ip: 10.85.171.17
         protocol: ssh
     credentials:
       default:

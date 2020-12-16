@@ -2,7 +2,7 @@ devices:
   xe1:
     connections:
       cli:
-        ip: 10.85.171.241
+        ip: 10.85.171.15
         protocol: ssh
     credentials:
       default:

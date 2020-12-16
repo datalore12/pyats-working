@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.8.6 on linux)" generated="20201215 16:41:04.527" rpa="false">
+<suite id="s1" name="Ospf Cost" source="/home/vagrant/pyats-working/ospf_cost.robot">
+<kw name="Setup" type="setup">
+<kw name="use genie testbed &quot;${testbed}&quot;" library="genie.libs.robot.GenieRobot">
+<doc>Create the genie testbed</doc>
+<msg timestamp="20201215 16:41:05.087" level="INFO">+------------------------------------------------------------------------------+
+|                            Genie datafiles used:                             |
++------------------------------------------------------------------------------+</msg>
+<msg timestamp="20201215 16:41:05.087" level="INFO">Trigger datafile          | </msg>
+<msg timestamp="20201215 16:41:05.088" level="INFO">Verification  datafile    | </msg>
+<msg timestamp="20201215 16:41:05.088" level="INFO">Pts datafile              | /home/vagrant/py3venv/lib/python3.8/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml</msg>
+<msg timestamp="20201215 16:41:05.088" level="INFO">Subsection datafile       | /home/vagrant/py3venv/lib/python3.8/site-packages/genie/libs/sdk/genie_yamls/subsection_datafile.yaml</msg>
+<msg timestamp="20201215 16:41:05.088" level="INFO">Config datafile           | None</msg>
+<msg timestamp="20201215 16:41:05.105" level="WARN">Could not load the Datafile correctly</msg>
+<status status="PASS" starttime="20201215 16:41:05.060" endtime="20201215 16:41:05.105"></status>
+</kw>
+<kw name="connect to devices &quot;xr1&quot;" library="ats.robot.pyATSRobot">
+<doc>Connect to devices via connection as defined in testbed.yaml.
+Specify devices with semi-colon separated list, e.g. "R1;R2"</doc>
+<msg timestamp="20201215 16:41:05.106" level="INFO">Connecting to device 'Device xr1, type iosxr'</msg>
+<msg timestamp="20201215 16:41:05.106" level="INFO">kwargs: {}</msg>
+<msg timestamp="20201215 16:41:15.877" level="INFO">2020-12-15 16:41:05,107: %UNICON-INFO: +++ xr1 logfile /tmp/xr1-cli-20201215T164105106.log +++
+
+2020-12-15 16:41:05,107: %UNICON-INFO: +++ Unicon plugin iosxr +++
+Password: 
+
+2020-12-15 16:41:06,558: %UNICON-INFO: +++ connection to spawn: ssh -l cisco 10.85.171.18, id: 140694886762912 +++
+
+2020-12-15 16:41:06,559: %UNICON-INFO: connection to xr1
+
+
+
+RP/0/RP0/CPU0:xr1#
+
+2020-12-15 16:41:08,887: %UNICON-INFO: +++ initializing handle +++
+
+2020-12-15 16:41:08,888: %UNICON-INFO: +++ xr1: executing command 'terminal length 0' +++
+terminal length 0
+Tue Dec 15 16:41:04.928 UTC
+RP/0/RP0/CPU0:xr1#
+
+2020-12-15 16:41:09,464: %UNICON-INFO: +++ xr1: executing command 'terminal width 0' +++
+terminal width 0
+Tue Dec 15 16:41:05.558 UTC
+RP/0/RP0/CPU0:xr1#
+
+2020-12-15 16:41:10,125: %UNICON-INFO: +++ xr1: configure +++
+configure terminal
+Tue Dec 15 16:41:06.168 UTC
+RP/0/RP0/CPU0:xr1(config)#no logging console
+RP/0/RP0/CPU0:xr1(config)#logging console disable
+RP/0/RP0/CPU0:xr1(config)#line console
+RP/0/RP0/CPU0:xr1(config-line)#exec-timeout 0 0
+RP/0/RP0/CPU0:xr1(config-line)#absolute-timeout 0
+RP/0/RP0/CPU0:xr1(config-line)#session-timeout 0
+RP/0/RP0/CPU0:xr1(config-line)#line default
+RP/0/RP0/CPU0:xr1(config-line)#exec-timeout 0 0
+RP/0/RP0/CPU0:xr1(config-line)#absolute-timeout 0
+RP/0/RP0/CPU0:xr1(config-line)#session-timeout 0
+RP/0/RP0/CPU0:xr1(config-line)#commit
+Tue Dec 15 16:41:10.138 UTC
+RP/0/RP0/CPU0:xr1(config-line)#end
+RP/0/RP0/CPU0:xr1#</msg>
+<status status="PASS" starttime="20201215 16:41:05.105" endtime="20201215 16:41:15.877"></status>
+</kw>
+<status status="PASS" starttime="20201215 16:41:05.060" endtime="20201215 16:41:15.877"></status>
+</kw>
+<test id="s1-t1" name="Verify Cost 10">
+<kw name="execute &quot;show ospf interface Gi0/0/0/0 | i Cost&quot; on device &quot;xr1&quot;" library="unicon.robot.UniconRobot">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20201215 16:41:15.879" level="INFO">Executing command show ospf interface Gi0/0/0/0 | i Cost on device xr1 alias None</msg>
+<msg timestamp="20201215 16:41:16.711" level="INFO">2020-12-15 16:41:15,880: %UNICON-INFO: +++ xr1: executing command 'show ospf interface Gi0/0/0/0 | i Cost' +++
+show ospf interface Gi0/0/0/0 | i Cost
+Tue Dec 15 16:41:11.922 UTC
+  Process ID 1, Router ID 10.0.0.6, Network Type BROADCAST, Cost: 10
+RP/0/RP0/CPU0:xr1#</msg>
+<msg timestamp="20201215 16:41:16.711" level="INFO">${output} = Tue Dec 15 16:41:11.922 UTC
+  Process ID 1, Router ID 10.0.0.6, Network Type BROADCAST, Cost: 10</msg>
+<status status="PASS" starttime="20201215 16:41:15.879" endtime="20201215 16:41:16.711"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>Cost: 10</arg>
+</arguments>
+<status status="PASS" starttime="20201215 16:41:16.712" endtime="20201215 16:41:16.712"></status>
+</kw>
+<status status="PASS" starttime="20201215 16:41:15.878" endtime="20201215 16:41:16.712" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Verify Cost 1">
+<kw name="execute &quot;show ospf interface Gi0/0/0/0&quot; on device &quot;xr1&quot;" library="unicon.robot.UniconRobot">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20201215 16:41:16.713" level="INFO">Executing command show ospf interface Gi0/0/0/0 on device xr1 alias None</msg>
+<msg timestamp="20201215 16:41:17.539" level="INFO">2020-12-15 16:41:16,713: %UNICON-INFO: +++ xr1: executing command 'show ospf interface Gi0/0/0/0' +++
+show ospf interface Gi0/0/0/0
+Tue Dec 15 16:41:12.749 UTC
+
+GigabitEthernet0/0/0/0 is up, line protocol is up 
+  Internet Address 10.0.0.6/30, Area 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, Router ID 10.0.0.6, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State BDR, Priority 1, MTU 1500, MaxPktSz 1500
+  Forward reference No, Unnumbered no,  Bandwidth 1000000 
+  Designated Router (ID) 192.168.0.1, Interface address 10.0.0.5
+  Backup Designated router (ID) 10.0.0.6, Interface address 10.0.0.6
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:08:057
+  Index 1/1, flood queue length 0
+  Next 0(0)/0(0)
+  Last flood scan length is 2, maximum is 2
+  Last flood scan time is 0 msec, maximum is 0 msec
+  LS Ack List: current length 0, high water mark 3
+  Neighbor Count is 1, Adjacent neighbor count is 1
+    Adjacent with neighbor 192.168.0.1  (Designated Router)
+  Suppress hello for 0 neighbor(s)
+  Multi-area interface Count is 0
+RP/0/RP0/CPU0:xr1#</msg>
+<msg timestamp="20201215 16:41:17.540" level="INFO">${output} = Tue Dec 15 16:41:12.749 UTC
+
+GigabitEthernet0/0/0/0 is up, line protocol is up 
+  Internet Address 10.0.0.6/30, Area 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, R...</msg>
+<status status="PASS" starttime="20201215 16:41:16.713" endtime="20201215 16:41:17.540"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>Cost: 1</arg>
+</arguments>
+<status status="PASS" starttime="20201215 16:41:17.540" endtime="20201215 16:41:17.540"></status>
+</kw>
+<status status="PASS" starttime="20201215 16:41:16.712" endtime="20201215 16:41:17.541" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201215 16:41:04.530" endtime="20201215 16:41:17.541"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Ospf Cost">Ospf Cost</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20201215 16:41:05.105" level="WARN">Could not load the Datafile correctly</msg>
+</errors>
+</robot>
